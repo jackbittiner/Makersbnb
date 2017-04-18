@@ -7,6 +7,8 @@ require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
 require_relative 'server'
+require_relative 'controllers/spaces'
+require_relative 'models/space'
 
 class MakersBnB < Sinatra::Base
 
