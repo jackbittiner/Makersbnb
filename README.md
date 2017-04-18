@@ -1,4 +1,29 @@
-#### User stories:
+## User stories:
+
+
+
+Setup:
+
+- Set up sinatra project
+
+- Set up datamapper database
+
+Look and feel:
+
+- When using the homepage:
+  design as per mockup
+
+- Log in page: design as per specification
+
+- Spaces page: design as per specification
+
+- New spaces page: design as per specification
+
+- Specific space page: design as per specification
+
+- requests page: design as per specification
+
+- specific request page: design as per specification
 
 Signed up user can list a new space:
 
@@ -41,6 +66,14 @@ Signed up user can list a new space:
 - As a lister of a space on makersbnb
   I want the ability to approve space space requests
   So that I can rent out my space
+
+- As a user of makersbnb
+  I want to be able to deny space requests
+  so that I am not overbooked
+
+- As a user of makersbnb
+  I want to see the status of my requests
+  so I can plan accordingly.
 
 - As a user of makersbnb
   I want to see a list of available spaces (both unconfirmed and available on my dates)
