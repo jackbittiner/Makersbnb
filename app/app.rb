@@ -23,8 +23,11 @@ class MakersBnB < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       redirect to('/spaces/index')
-    else
+    elsif params[:password] != params[:password_confirmation]
       flash.now[:notice] = "Password and confirmation password do not match"
+      erb :'users/index'
+    else
+      flash.now[:notice] = "Enter a valid email"
       erb :'users/index'
     end
   end

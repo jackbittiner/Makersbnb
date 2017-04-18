@@ -14,4 +14,25 @@ feature 'User sign up' do
     expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
     expect(page).to have_content 'Password and confirmation password do not match'
   end
+
+  scenario 'user must enter an name' do
+    expect {sign_up(name: "")}.not_to change(User, :count)
+  end
+
+  scenario 'user must enter an email address' do
+    expect {sign_up(email: "")}.not_to change(User, :count)
+  end
+
+  scenario 'user must enter a password' do
+    expect {sign_up(password: "")}.not_to change(User, :count)
+  end
+
+  scenario 'user must confirm their password' do
+    expect {sign_up(password_confirmation: "")}.not_to change(User, :count)
+  end
+
+  scenario 'email has to be valid' do
+    expect {sign_up(email: "sjdc")}.not_to change(User, :count)
+  end
+
 end
