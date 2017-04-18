@@ -14,6 +14,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/app'
 require 'web_helper'
+require_relative './helpers/session'
 
 require './app/models/space'
 require './app/models/user'
