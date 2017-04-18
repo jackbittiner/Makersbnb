@@ -18,4 +18,5 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'pry'
+  gem 'selenium-webdriver'
 end

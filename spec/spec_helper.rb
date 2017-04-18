@@ -13,7 +13,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-
+require 'web_helper'
+require './app/models/user'
+require './app/models/space'
 
 Capybara.app = MakersBnB
 
