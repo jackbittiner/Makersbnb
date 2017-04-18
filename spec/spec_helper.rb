@@ -13,6 +13,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
+require './app/models/space'
+require './app/models/user'
 
 
 Capybara.app = MakersBnB
@@ -64,11 +66,11 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do # <-- before entire test run
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do # <-- create a "save point" before each test
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.start
   end
 

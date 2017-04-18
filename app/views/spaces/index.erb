@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <div>
+      <ul id="spaces">
+        <% @spaces.each do |space| %>
+          <%= space.name %>
+          <%= space.description %>
+          <%= space.price %>
+          <%= space.available_from %>
+          <%= space.available_to %>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
