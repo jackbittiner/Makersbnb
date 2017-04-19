@@ -1,8 +1,9 @@
 class MakersBnB < Sinatra::Base
 
   get '/requests/:id' do
-    request = Request.first(params[:id])
+    request = Request.first(id: params[:id])
     @status = request.status
+    @id = request.id
     @space = Space.first(id: request.space_id)
     erb :'/requests/request_booking'
   end
@@ -15,6 +16,13 @@ class MakersBnB < Sinatra::Base
                               date: '19/04/17')
     current_user.requests << request
     space.requests << request
+    redirect "/requests/#{request.id}"
+  end
+
+  post '/requests/outcome' do
+    request = Request.first(id: params[:id])
+    request.update(:status => params[:status])
+    p params[:status]
     redirect "/requests/#{request.id}"
   end
 
