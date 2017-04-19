@@ -1,14 +1,6 @@
-feature 'list a space' do
+feature 'list many spaces' do
 
-  scenario 'have the ability to list a space' do
-    # sign_up
-    # sign_in
-    visit '/spaces'
-    click_button 'List a Space'
-    expect(page).to have_content 'List a Space'
-  end
-
-  scenario 'add a specific space' do
+  scenario 'add multiple spaces' do
     #sign_in
     visit '/spaces/new'
     fill_in 'name', with: 'Casa de Rodriguez'
