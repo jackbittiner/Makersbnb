@@ -4,15 +4,13 @@
 <%= @space.available_from %>
 <%= @space.available_to %>
 
-<form action="/requests/<%= @space.id %>" method="post">
+<form action="/requests" method="post">
+  <input type='hidden' value='<%= @space.id %>' name='id'>
   <label>
     Pick a night:
-    <input name="booking_date_request" type="date">
+    <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>">
   </label>
   <button type="submit">
     Request to book
   </button>
 </form>
-
-<!-- <form action="/requests/<%= @space.id %>" method="get">
-</form> -->

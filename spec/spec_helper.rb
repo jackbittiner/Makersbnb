@@ -19,6 +19,7 @@ require_relative './helpers/listings'
 
 require './app/models/space'
 require './app/models/user'
+require './app/models/request'
 
 Capybara.app = MakersBnB
 
