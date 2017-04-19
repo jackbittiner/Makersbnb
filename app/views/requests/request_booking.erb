@@ -1,4 +1,25 @@
-<h1>You have requested to book </h1><%= @space.name %>
+<% if current_user.id != @space.user_id %>
+
+<h1>You have requested to book </h1>
+
+<% end %>
+
+<%= @space.name %>
 <%= @space.description %>
 <%= @space.price %>
 <p>Status: <%= @status %></p>
+
+<% if current_user.id == @space.user_id %>
+
+<form action='/requests/outcome' method='post'>
+  <input type='hidden' value='<%= @id %>' name='id'>
+  <input type='hidden' value='accepted' name='status'>
+  <button type="submit"> Accept </button>
+</form>
+<form action='/requests/outcome' method='post'>
+  <input type='hidden' value='<%= @id %>' name='id'>
+  <input type='hidden' value='declined' name='status'>
+  <button type="submit"> Decline </button>
+</form>
+
+<% end %>
