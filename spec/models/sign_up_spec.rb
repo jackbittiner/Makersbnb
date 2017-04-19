@@ -16,7 +16,11 @@ feature 'User sign up' do
   end
 
   scenario 'user must enter an name' do
-    expect {sign_up(name: "")}.not_to change(User, :count)
+    expect {sign_up(firstname: "")}.not_to change(User, :count)
+  end
+
+  scenario 'user must enter an name' do
+    expect {sign_up(lastname: "")}.not_to change(User, :count)
   end
 
   scenario 'user must enter an email address' do
