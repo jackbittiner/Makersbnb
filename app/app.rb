@@ -12,6 +12,7 @@ require_relative 'controllers/spaces'
 require_relative 'models/space'
 require_relative 'controllers/users'
 require_relative 'models/user'
+require_relative 'controllers/sessions'
 
 class MakersBnB < Sinatra::Base
 
