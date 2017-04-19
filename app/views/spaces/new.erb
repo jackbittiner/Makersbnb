@@ -14,10 +14,10 @@
     Price per night(£): <input name="price" type="text">
   </label>
   <label>
-    Available from: <input name="available_from" type="date">
+    Available from: <input name="available_from" type="date" min="<%= Time.now.strftime('%F') %>">
   </label>
   <label>
-    Available to: <input name="available_to" type="date">
+    Available to: <input name="available_to" type="date" min="<%= Time.now.strftime('%F') %>">
   </label>
   <input type="submit" value="List my space">
   </form>
