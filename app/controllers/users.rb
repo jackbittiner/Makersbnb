@@ -10,7 +10,9 @@ class MakersBnB < Sinatra::Base
     @user = User.create(email: params[:email],
     password: params[:password],
     password_confirmation: params[:password_confirmation],
-    name: params[:name])
+    firstname: params[:firstname],
+    lastname: params[:lastname],
+    username: params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/spaces')
