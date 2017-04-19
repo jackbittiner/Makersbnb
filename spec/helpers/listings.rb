@@ -5,8 +5,7 @@ module ListingHelpers
                     price: '500',
                     available_from: '18/04/17',
                     available_to: '18/04/18')
-
-    visit '/spaces/new'
+    click_button "List a Space"
     fill_in :name, with: name
     fill_in :description, with: description
     fill_in :price, with: price
