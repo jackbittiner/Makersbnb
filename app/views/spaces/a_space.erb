@@ -3,3 +3,9 @@
 <%= @space.price %>
 <%= @space.available_from %>
 <%= @space.available_to %>
+
+<form action="/requests/<%= @space.id %>" method="get">
+  <button type="submit">
+    Request to book
+  </button>
+</form>
