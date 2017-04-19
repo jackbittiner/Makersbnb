@@ -1,6 +1,10 @@
 <html>
   <body>
 
+    <%if params[:username]%>
+      <p><%=params[:username]%>'s spaces</p>
+    <% end %>
+
     <form method="get" action="/spaces/new">
       <button type="submit">
         List a Space

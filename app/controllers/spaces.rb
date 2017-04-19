@@ -25,5 +25,10 @@ class MakersBnB < Sinatra::Base
     erb :'/spaces/a_space'
   end
 
-end
+  get '/spaces/user/:username' do
+    user = User.first(username: params[:username])
+    @spaces = user.spaces
+    erb :'spaces/index'
+  end
 
+end

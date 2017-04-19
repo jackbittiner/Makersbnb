@@ -7,8 +7,14 @@
 <% end %>
 
 <form action='/users' method='post'>
-  <label for='name'>
-    Name: <input name='name' type='text' value='<%= @user.name %>' required>
+  <label for='username'>
+    Username: <input name='username' type='text' value='<%= @user.username %>' required>
+  </label>
+  <label for='firstname'>
+    First Name: <input name='firstname' type='text' value='<%= @user.firstname %>' required>
+  </label>
+  <label for='lastname'>
+    Last Name: <input name='lastname' type='text' value='<%= @user.lastname %>' required>
   </label>
   <label for='email'>
     Email: <input name='email' type='email' value='<%= @user.email %>' required>
