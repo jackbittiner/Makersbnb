@@ -4,7 +4,8 @@
 <%= @space.available_from %>
 <%= @space.available_to %>
 
-<form action="/requests/<%= @space.id %>" method="get">
+<form action="/requests" method="post">
+  <input type='hidden' value='<%= @space.id %>' name='id'>
   <button type="submit">
     Request to book
   </button>
