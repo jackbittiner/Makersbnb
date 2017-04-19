@@ -13,7 +13,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-require 'web_helper'
+
 require_relative './helpers/session'
 require_relative './helpers/listings'
 
@@ -41,13 +41,12 @@ Capybara.app = MakersBnB
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include SessionHelpers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.include ListingHelpers
-
-# ADD THIS IF USING SESSION HELPERS
-  # config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
