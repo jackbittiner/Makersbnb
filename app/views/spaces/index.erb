@@ -1,9 +1,11 @@
 <html>
   <body>
 
-    <button action="/spaces/new">
-      List a Space
-    </button>
+    <form method="get" action="/spaces/new">
+      <button type="submit">
+        List a Space
+      </button>
+    </form>
 
     <div>
       <ul id="spaces">
@@ -13,6 +15,7 @@
           <%= space.price %>
           <%= space.available_from %>
           <%= space.available_to %>
+          <p>
         <% end %>
       </ul>
     </div>
