@@ -13,7 +13,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-require './spec/helpers/session'
+
+require_relative './helpers/session'
+require_relative './helpers/listings'
 
 require './app/models/space'
 require './app/models/user'
@@ -44,6 +46,7 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
+  config.include ListingHelpers
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
