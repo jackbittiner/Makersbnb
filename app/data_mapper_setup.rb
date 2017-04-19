@@ -4,6 +4,7 @@ require 'dm-timestamps'
 
 require_relative 'models/user'
 require_relative 'models/space'
+require_relative 'models/request'
 
 # DataMapper::Logger.new($stdout, :debug)
 
