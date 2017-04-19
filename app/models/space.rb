@@ -9,6 +9,8 @@ class Space
   property :available_from, Date
   property :available_to, Date
 
+  has n, :requests
+
   belongs_to :user
 
 end
