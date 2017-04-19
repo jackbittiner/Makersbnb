@@ -10,13 +10,7 @@ feature 'list a space' do
 
   scenario 'add a specific space' do
     #sign_in
-    visit '/spaces/new'
-    fill_in 'name', with: 'Casa de Rodriguez'
-    fill_in 'description', with: 'Lovely abode with stunning vistas to the Valencian coast'
-    fill_in 'price', with: '500'
-    fill_in 'available_from', with: '18/04/17'
-    fill_in 'available_to', with: '18/04/18'
-    click_button 'List my space'
+    create_listing
 
     expect(current_path).to eq '/spaces'
 
