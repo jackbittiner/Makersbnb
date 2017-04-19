@@ -10,7 +10,7 @@
     <div>
       <ul id="spaces">
         <% @spaces.each do |space| %>
-          <%= space.name %>
+          <a href="/spaces/<%= space.id %>"><%= space.name %></a>
           <%= space.description %>
           <%= space.price %>
           <%= space.available_from %>
