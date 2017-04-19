@@ -8,7 +8,9 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :name, String
+  property :username, String, unique: true
+  property :firstname, String
+  property :lastname, String
   property :email, String, unique: true
   property :password_digest, Text
 
@@ -30,7 +32,7 @@ class User
 end
 
   validates_confirmation_of :password
-  validates_presence_of :email, :name, :password
+  validates_presence_of :email, :firstname, :lastname, :password
   validates_format_of :email, as: :email_address
 
 end

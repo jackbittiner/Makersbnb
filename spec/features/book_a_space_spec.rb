@@ -1,6 +1,7 @@
 feature 'book a space' do
 
   scenario 'have the ability to view a space' do
+    sign_up
     create_listing
     visit '/spaces'
     click_link 'Casa de Rodriguez'
