@@ -6,20 +6,20 @@
 
 
 <%= @space.description %><p>
-<%= @space.price %>
+£<%= @space.price %>
 <img src="<%= @space.image_url %>" width="300" height="300">
 
-<p>Status: <%= @status %></p>
+<p>Status: <%= @booking.status %></p>
 
 <% if current_user.id == @space.user_id %>
 
 <form action='/requests/outcome' method='post'>
-  <input type='hidden' value='<%= @id %>' name='id'>
+  <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='accepted' name='status'>
   <button type="submit"> Accept </button>
 </form>
 <form action='/requests/outcome' method='post'>
-  <input type='hidden' value='<%= @id %>' name='id'>
+  <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='declined' name='status'>
   <button type="submit"> Decline </button>
 </form>
