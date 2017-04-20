@@ -9,8 +9,11 @@
       <ul id="requests_sent">
         <% @requests_sent.each do |request| %>
           <% space = Space.first(id: request.space_id) %>
-          <a href="/request/<%= request.id %>"><%= space.name %></a>
-          <%= space.price %>
+          <a href="/request/<%= request.id %>">
+          <%= space.name %>
+          <img src="<%= space.image_url %>" width="300" height="300">
+          </a>
+          £<%= space.price %>
           <%= request.date %>
           <%= request.status %>
           <p>
@@ -25,9 +28,12 @@
         <% @requests_received.each do |request| %>
           <% space = Space.first(id: request.space_id) %>
           <% user = User.first(id: request.user_id) %>
-          <a href="/request/<%= request.id %>"><%= space.name %></a>
+          <a href="/request/<%= request.id %>">
+          <%= space.name %>
+          <img src="<%= space.image_url %>" width="300" height="300">
+        </a>
           <%= user.username %>
-          <%= space.price %>
+          £<%= space.price %>
           <%= request.date %>
           <%= request.status %>
           <p>
