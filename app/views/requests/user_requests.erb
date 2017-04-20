@@ -3,48 +3,56 @@
   <body>
     <h1> <%= current_user.username %>'s requests:</h1>
 
-<% if !@requests_sent.empty? %>
+<table class='requestbox'>
+<tr>
+  <td>
+    <% if !@requests_sent.empty? %>
     <h3> Sent </h3>
-<% end %>
-
-    <div>
+    <% end %>
+  </td>
+  <td>
+    <% if !@requests_received.empty? %>
+    <h3> Received </h3>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td style="vertical-align: top">
       <ul id="requests_sent">
         <% @requests_sent.each do |request| %>
           <% space = Space.first(id: request.space_id) %>
+          <div class="listing">
           <a href="/request/<%= request.id %>">
-          <%= space.name %>
-          <img src="<%= space.image_url %>" width="300" height="300">
+          <img align='right' src="<%= space.image_url %>" width="130" height="130">
+          <h2><%= space.name %></h2>
           </a>
-          £<%= space.price %>
-          <%= request.date %>
-          <%= request.status %>
-          <p>
-        <% end %>
+          <p>£<%= sprintf('%.2f', space.price) %></p>
+          <p>Date: <%= request.date.strftime("%d/%m/%Y") %></p>
+          <p>Status: <%= request.status %></p>
+      </div>
+      <% end %>
       </ul>
-    </div>
-
-<% if !@requests_received.empty? %>
-  <h3> Received </h3>
-<% end %>
-
-    <div>
+  </td>
+  <td style="vertical-align: top">
       <ul id="requests_received">
         <% @requests_received.each do |request| %>
           <% space = Space.first(id: request.space_id) %>
           <% user = User.first(id: request.user_id) %>
+          <div class="listing">
           <a href="/request/<%= request.id %>">
-          <%= space.name %>
-          <img src="<%= space.image_url %>" width="300" height="300">
+          <img align='right' src="<%= space.image_url %>" width="130" height="130">
+          <h2><%= space.name %></h2>
         </a>
-          <%= user.username %>
-          £<%= space.price %>
-          <%= request.date %>
-          <%= request.status %>
-          <p>
-        <% end %>
+          <p>Requested by: <%= user.username %></p>
+          <p>£<%= sprintf('%.2f', space.price) %> per night</p>
+          <p>Date: <%= request.date.strftime("%d/%m/%Y") %></p>
+          <p>Status: <%= request.status %></p>
+      </div>
+      <% end %>
       </ul>
-    </div>
-
+  </td>
+</tr>
+</table>
 
   </body>
 </html>
