@@ -15,7 +15,8 @@ class MakersBnB < Sinatra::Base
                            price: params[:price],
                            available_from: params[:available_from],
                            available_to: params[:available_to],
-                           user_id: current_user.id)
+                           user_id: current_user.id,
+                           image_url: params[:image_url])
     current_user.spaces << space
     redirect '/spaces'
   end

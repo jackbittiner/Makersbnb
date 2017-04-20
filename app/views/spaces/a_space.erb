@@ -3,7 +3,7 @@
 <%= @space.price %>
 <%= @space.available_from %>
 <%= @space.available_to %>
-
+<img src="<%= @space.image_url %>" width="300" height="300">
 <form action="/requests" method="post">
   <input type='hidden' value='<%= @space.id %>' name='id'>
   <label>

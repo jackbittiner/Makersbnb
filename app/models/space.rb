@@ -8,6 +8,7 @@ class Space
   property :price, Float
   property :available_from, Date
   property :available_to, Date
+  property :image_url, Text
 
   has n, :requests
 
