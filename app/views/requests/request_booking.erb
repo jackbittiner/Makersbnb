@@ -1,11 +1,11 @@
 <% if current_user.id != @space.user_id %>
 
-<h1>You have requested to book </h1>
+<h1>You have requested to book <%= @space.name %><p></h1>
 
 <% end %>
 
-<%= @space.name %>
-<%= @space.description %>
+
+<%= @space.description %><p>
 <%= @space.price %>
 
 <p>Status: <%= @status %></p>

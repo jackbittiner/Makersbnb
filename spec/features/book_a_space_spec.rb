@@ -14,6 +14,13 @@ feature 'book a space' do
   scenario 'have the ability to book a space' do
     sign_up
     create_listing
+    # Cannot be the same user as the one who created the listing
+    sign_up(username: "Jess",
+            firstname: "Jess",
+            lastname: "Rodriguez",
+            email: 'jess@example.com',
+            password: '123',
+            password_confirmation: '123')
     visit '/spaces'
     click_link 'Casa de Rodriguez'
 
