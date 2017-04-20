@@ -1,27 +1,28 @@
-<% if current_user.id != @space.user_id %>
+<% if current_user.id == @user.id %>
 
 <h1>You have requested to book <%= @space.name %><p></h1>
-
-<% end %>
-
-
 <%= @space.description %><p>
-£<%= @space.price %>
-<img src="<%= @space.image_url %>" width="300" height="300">
+  £<%= @space.price %>
+  <img src="<%= @space.image_url %>" width="300" height="300">
+  <p>Status: <%= @booking.status %></p>
 
-<p>Status: <%= @booking.status %></p>
+<% elsif current_user.id == @space.user_id %>
 
-<% if current_user.id == @space.user_id %>
+<h1><%= @user.username %> has requested to book <%= @space.name %><p></h1>
+  <img src="<%= @space.image_url %>" width="300" height="300">
+  Date: <%= @booking.date %>
+  <p>Status: <%= @booking.status %></p>
 
+<div class="row">
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='accepted' name='status'>
-  <button type="submit"> Confirm Request </button>
+  <button type="submit" class="btn btn-primary"> Confirm Request </button>
 </form>
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='declined' name='status'>
-  <button type="submit"> Decline Request </button>
+  <button type="submit" class="btn btn-primary"> Decline Request </button>
 </form>
-
+</div>
 <% end %>

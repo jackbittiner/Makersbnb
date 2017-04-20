@@ -6,12 +6,10 @@
     <% end %>
 
     <form method="get" action="/spaces/new">
-      <button type="submit">
-        List a Space
-      </button>
+      <button type='submit' class="btn btn-primary">List a Space</button>
     </form>
 
-    <div>
+    <div class="row">
       <ul id="spaces">
         <% @spaces.each do |space| %>
           <a href="/spaces/<%= space.id %>">

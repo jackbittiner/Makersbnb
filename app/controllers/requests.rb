@@ -3,18 +3,26 @@ class MakersBnB < Sinatra::Base
   get '/request/:id' do
     @booking = Request.first(id: params[:id])
     @space = Space.first(id: @booking.space_id)
+    @user = User.first(id: @booking.user_id)
     erb :'/requests/request_booking'
   end
 
   post '/requests' do
     space = Space.first(id: params[:id])
+    taken_dates = unavailable_dates(space)
     request = Request.create(space_id: params[:id],
-                              user_id: current_user.id,
-                              status: 'pending',
-                              date: '19/04/17')
-    current_user.requests << request
-    space.requests << request
-    redirect "/request/#{request.id}"
+                                user_id: current_user.id,
+                                status: 'pending',
+                                date: params[:book_a_night])
+    if taken_dates.include?(request.date)
+      request.destroy
+      flash.keep[:errors] = ["Date is already taken!"]
+      redirect "/spaces/#{space.id}"
+    else
+      current_user.requests << request
+      space.requests << request
+      redirect "/request/#{request.id}"
+    end
   end
 
   post '/requests/outcome' do
