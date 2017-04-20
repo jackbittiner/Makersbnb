@@ -4,7 +4,11 @@
 <%= @space.available_from %>
 <%= @space.available_to %>
 
-<p>This space is unavilable on the following dates:</p>
+<% if !unavailable_dates(@space).empty? %>
+
+<p>This space is unavailable on the following dates:</p>
+
+<% end %>
 
 <div>
   <ul id="unavailable_dates">
