@@ -25,7 +25,7 @@ feature 'book a space' do
     click_link 'Casa de Rodriguez'
 
     expect {click_button 'Request to book'}.to change(Request, :count).by(1)
-    expect(current_path).to eq '/requests/1'
+    expect(current_path).to eq '/request/1'
     expect(page).to have_content 'You have requested to book Casa de Rodriguez'
     expect(page).to have_content 'pending'
   end
