@@ -14,13 +14,12 @@
         <% @spaces.each do |space| %>
         <div class='listing'>
           <a href="/spaces/<%= space.id %>">
-          <h2 align='left'><%= space.name %></h2>
           <img src="<%= space.image_url %>" width="150" height="150" align='right'>
+          <h2 align='left'><%= space.name %></h2>
           </a>
           <p><%= space.description %></p>
-          <p>£<%= space.price %></p>
-          <p><%= space.available_from %></p>
-          <p><%= space.available_to %></p>
+          <p>£<%= sprintf('%.2f', space.price) %> per night</p>
+          <p>Available from <%= space.available_from.strftime("%d/%m/%Y") %> to <%= space.available_to.strftime("%d/%m/%Y") %></p>
         </div>
         <% end %>
       </ul>
