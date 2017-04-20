@@ -6,7 +6,7 @@ module SessionHelpers
               email: 'jackdopeyman@hotmail.com',
               password: 'stephstephsteph',
               password_confirmation: 'stephstephsteph')
-    visit '/'
+    visit '/users/new'
     fill_in :username, with: username
     fill_in :firstname, with: firstname
     fill_in :lastname, with: lastname
@@ -22,7 +22,7 @@ module SessionHelpers
           email: 'steph@steph.steph',
           password: 'steph',
           password_confirmation: 'steph')
-    visit '/'
+    visit '/users/new'
     fill_in :username, with: username
     fill_in :firstname, with: firstname
     fill_in :lastname, with: lastname
