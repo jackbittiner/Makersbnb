@@ -3,12 +3,23 @@
 £<%= @space.price %>
 <%= @space.available_from %>
 <%= @space.available_to %>
+
+<p>This space is unavilable on the following dates:</p>
+
+<div>
+  <ul id="unavailable_dates">
+    <% @unavailable_dates.each do |date| %>
+      <li><%= date %></li>
+    <% end %>
+  </ul>
+</div>
+
 <img src="<%= @space.image_url %>" width="300" height="300">
 <form action="/requests" method="post">
   <input type='hidden' value='<%= @space.id %>' name='id'>
   <label>
     Pick a night:
-    <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>">
+    <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
   </label>
   <button type="submit">
     Request to book

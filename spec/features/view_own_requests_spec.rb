@@ -16,6 +16,7 @@ feature 'viewing own requests' do
     sign_up_steph
     visit '/spaces'
     click_link 'Casa de Rodriguez'
+    fill_in 'book_a_night', with: '18/06/17'
     click_button 'Request to book'
     visit '/requests/user'
     expect(page).to have_content('Casa de Rodriguez')
@@ -28,6 +29,7 @@ feature 'viewing own requests' do
     sign_up_steph
     visit '/spaces'
     click_link 'Casa de Rodriguez'
+    fill_in 'book_a_night', with: '18/06/17'
     click_button 'Request to book'
     click_button 'Sign out'
     sign_in
