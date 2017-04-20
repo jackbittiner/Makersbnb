@@ -23,6 +23,7 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces/:id' do
     @space = Space.first(id: params[:id])
+    @unavailable_dates = unavailable_dates(@space)
     erb :'/spaces/a_space'
   end
 

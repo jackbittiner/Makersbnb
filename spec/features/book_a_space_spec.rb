@@ -5,7 +5,7 @@ feature 'book a space' do
     create_listing
     visit '/spaces'
     click_link 'Casa de Rodriguez'
-    
+
     expect(current_path).to eq '/spaces/1'
 
     expect(page).to have_content 'Casa de Rodriguez'
@@ -23,7 +23,7 @@ feature 'book a space' do
             password_confirmation: '123')
     visit '/spaces'
     click_link 'Casa de Rodriguez'
-
+    fill_in 'book_a_night', with: '18/06/17'
     expect {click_button 'Request to book'}.to change(Request, :count).by(1)
     expect(current_path).to eq '/request/1'
     expect(page).to have_content 'You have requested to book Casa de Rodriguez'

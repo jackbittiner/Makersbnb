@@ -1,13 +1,16 @@
 class MakersBnB < Sinatra::Base
 
-
   get '/' do
     if current_user
       redirect to('/spaces')
     else
-      @user = User.new
-      erb :'users/index'
+      redirect '/users/new'
     end
+  end
+
+  get '/users/new' do
+    @user = User.new
+    erb :'users/index'
   end
 
   post '/users' do
