@@ -29,6 +29,12 @@ class MakersBnB < Sinatra::Base
   get '/requests/user' do
     @user = current_user
     @requests_sent = current_user.requests
+    @requests_received = []
+    current_user.spaces.each do |space|
+      space.requests.each do |request|
+        @requests_received << request
+      end
+    end
     erb :'requests/user_requests'
   end
 

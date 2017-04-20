@@ -8,7 +8,7 @@ feature 'viewing own requests' do
     visit '/requests/user'
     expect(page).not_to have_content('Casa de Rodriguez')
   end
-  
+
   scenario 'Can see my own requests' do
     sign_up
     create_listing
@@ -17,6 +17,20 @@ feature 'viewing own requests' do
     visit '/spaces'
     click_link 'Casa de Rodriguez'
     click_button 'Request to book'
+    visit '/requests/user'
+    expect(page).to have_content('Casa de Rodriguez')
+  end
+
+  scenario "if another user has requested my space, then i see it on my requests page" do
+    sign_up
+    create_listing
+    click_button 'Sign out'
+    sign_up_steph
+    visit '/spaces'
+    click_link 'Casa de Rodriguez'
+    click_button 'Request to book'
+    click_button 'Sign out'
+    sign_in
     visit '/requests/user'
     expect(page).to have_content('Casa de Rodriguez')
   end
