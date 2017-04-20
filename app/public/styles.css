@@ -17,7 +17,7 @@ body {
 
 .nav-items {
   position: relative;
-  left: 20px;
+  left: 4%;
 
 }
 
@@ -33,9 +33,9 @@ body {
 
 .nav h4 {
   margin-top: 0;
-  position: relative;
-  left: 892px;
-  top: -4px;
+  position: absolute;
+  right: 14%;
+  top: 18px;
   font-size: 17px;
   color: #0D0D0D;
   font-size: 16px;
@@ -45,8 +45,8 @@ body {
 .signout-button {
     float: right;
     position: absolute;
-    top: 14px;
-    left: 1187px;
+    top: 10px;
+    right: 4%;
 }
 
 .logo {
