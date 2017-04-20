@@ -1,18 +1,40 @@
 <html>
 
   <body>
-    <p> <%= current_user.username %>'s requests:</p>
+    <h1> <%= current_user.username %>'s requests:</h1>
+
+    <h3> Sent </h3>
 
     <div>
-      <ul id="requests">
+      <ul id="requests_sent">
         <% @requests_sent.each do |request| %>
           <% space = Space.first(id: request.space_id) %>
           <a href="/request/<%= request.id %>"><%= space.name %></a>
           <%= space.price %>
           <%= request.date %>
+          <%= request.status %>
           <p>
         <% end %>
       </ul>
     </div>
+
+      <h3> Received </h3>
+
+    <div>
+      <ul id="requests_received">
+        <% @requests_received.each do |request| %>
+          <% space = Space.first(id: request.space_id) %>
+          <% user = User.first(id: request.user_id) %>
+          <a href="/request/<%= request.id %>"><%= space.name %></a>
+          <%= user.username %>
+          <%= space.price %>
+          <%= request.date %>
+          <%= request.status %>
+          <p>
+        <% end %>
+      </ul>
+    </div>
+
+
   </body>
 </html>
