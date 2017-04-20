@@ -32,6 +32,22 @@ module SessionHelpers
     click_button 'Sign up'
   end
 
+  def sign_up_ruan(username: 'Ruan',
+          firstname: 'Ruan',
+          lastname: 'Od',
+          email: 'ruan@ruan.ruan',
+          password: 'ruan',
+          password_confirmation: 'ruan')
+    visit '/'
+    fill_in :username, with: username
+    fill_in :firstname, with: firstname
+    fill_in :lastname, with: lastname
+    fill_in :email, with: email
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
+    click_button 'Sign up'
+  end
+
   def sign_in(email: "jackdopeyman@hotmail.com",
                 password: "stephstephsteph")
     visit '/sessions/new'
