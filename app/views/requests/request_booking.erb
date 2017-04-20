@@ -13,15 +13,16 @@
   Date: <%= @booking.date %>
   <p>Status: <%= @booking.status %></p>
 
+<div class="row">
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='accepted' name='status'>
-  <button type="submit"> Confirm Request </button>
+  <button type="submit" class="btn btn-primary"> Confirm Request </button>
 </form>
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='declined' name='status'>
-  <button type="submit"> Decline Request </button>
+  <button type="submit" class="btn btn-primary"> Decline Request </button>
 </form>
-
+</div>
 <% end %>
