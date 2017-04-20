@@ -1,11 +1,15 @@
 <h1>Please sign in</h1>
 
-<form action='/sessions' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email' >
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password' >
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
+<div class="row">
+  <div class="container s-form">
+    <form action='/sessions' method='post'>
+      <label for='email'>
+        Email: <input name='email' type='email' >
+      </label>
+      <label for='password'>
+        Password: <input name='password' type='password' >
+      </label>
+      <button type='submit' class="btn btn-primary">Sign in</button>
+    </form>
+  </div>
+</div>
