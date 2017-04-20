@@ -12,15 +12,16 @@
     <div class="row">
       <ul id="spaces">
         <% @spaces.each do |space| %>
+        <div class='listing'>
           <a href="/spaces/<%= space.id %>">
-          <%= space.name %>
-          <img src="<%= space.image_url %>" width="300" height="300">
+          <h2 align='left'><%= space.name %></h2>
+          <img src="<%= space.image_url %>" width="150" height="150" align='right'>
           </a>
-          <%= space.description %>
-          £<%= space.price %>
-          <%= space.available_from %>
-          <%= space.available_to %>
-          <p>
+          <p><%= space.description %></p>
+          <p>£<%= space.price %></p>
+          <p><%= space.available_from %></p>
+          <p><%= space.available_to %></p>
+        </div>
         <% end %>
       </ul>
     </div>
