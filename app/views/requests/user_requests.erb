@@ -3,7 +3,9 @@
   <body>
     <h1> <%= current_user.username %>'s requests:</h1>
 
+<% if !@requests_sent.empty? %>
     <h3> Sent </h3>
+<% end %>
 
     <div>
       <ul id="requests_sent">
@@ -21,7 +23,9 @@
       </ul>
     </div>
 
-      <h3> Received </h3>
+<% if !@requests_received.empty? %>
+  <h3> Received </h3>
+<% end %>
 
     <div>
       <ul id="requests_received">
