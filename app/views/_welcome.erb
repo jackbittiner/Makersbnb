@@ -1,5 +1,9 @@
 <% if current_user %>
   Welcome, <%= current_user.firstname %> <%= current_user.lastname %>!
+  <div class="nav">
+    <a href="/spaces">Spaces</a>
+    <a href="/requests">Requests</a>
+  </div>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Sign out'>
