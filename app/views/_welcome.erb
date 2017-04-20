@@ -1,11 +1,16 @@
 <% if current_user %>
-  Welcome, <%= current_user.firstname %> <%= current_user.lastname %>!
   <div class="nav">
-    <a href="/spaces">Spaces</a>
-    <a href="/requests">Requests</a>
+    <div class="logo">
+      <img src="bed.png">
+    </div>
+    <div class="nav-items">
+      <a href="/spaces">Spaces</a>
+      <a href="/requests">Requests</a>
+    </div>
+    <h4>Welcome, <%= current_user.firstname %> <%= current_user.lastname %>!</h4>
+    <form method='post' action='/sessions' class="signout-button">
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
   </div>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
 <% end %>
