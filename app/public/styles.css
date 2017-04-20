@@ -62,8 +62,8 @@ body {
 .listing {
   margin: auto;
   border-radius: 15px;
-  text-align: center;
-  height: 300px;
+  text-align: left;
+  height: auto;
   width: 500px;
   box-sizing: border-box;
   padding: 15px;
