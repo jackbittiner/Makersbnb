@@ -19,13 +19,16 @@
 </div>
 
 <img src="<%= @space.image_url %>" width="300" height="300">
-<form action="/requests" method="post">
-  <input type='hidden' value='<%= @space.id %>' name='id'>
-  <label>
-    Pick a night:
-    <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
-  </label>
-  <button type="submit">
-    Request to book
-  </button>
-</form>
+
+<% if !(current_user.id == @space.user_id) %>
+  <form action="/requests" method="post">
+    <input type='hidden' value='<%= @space.id %>' name='id'>
+    <label>
+      Pick a night:
+      <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
+    </label>
+    <button type="submit">
+      Request to book
+    </button>
+  </form>
+<% end %>
