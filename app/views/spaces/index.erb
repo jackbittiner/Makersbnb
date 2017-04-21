@@ -2,19 +2,22 @@
   <body>
 
     <%if params[:username]%>
-      <p><%=params[:username]%>'s spaces</p>
+      <h1 align='center'><%=params[:username]%>'s spaces</h1>
+    <%else%>
+      <h1 align='center'> Available spaces:</h1>
     <% end %>
 
     <form method="get" action="/spaces/new">
       <button type='submit' class="btn btn-primary">List a Space</button>
     </form>
 
+
     <div class="row">
       <ul id="spaces">
         <% @spaces.each do |space| %>
         <div class='listing'>
           <a href="/spaces/<%= space.id %>">
-          <img src="<%= space.image_url %>" width="150" height="150" align='right'>
+            <img src="<%= space.image_url %>">
           <h2 align='left'><%= space.name %></h2>
           </a>
           <p><%= space.description %></p>
