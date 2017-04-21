@@ -108,13 +108,13 @@ body {
 }
 
 .main-container {
-  /*background: url(http://gardenandgun.com/wp-content/uploads/2016/12/GG0115_Islands_17.jpg) no-repeat center center fixed;
+  background: url(http://luxoticworld.com/wp-content/uploads/2012/04/conrad-rangali-island-maldives-hotel-night.jpg),
+  rgba(0,0,0,0.4) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  box-shadow: 0px 5000px 0px rgba(0, 0, 0, 0.5) ;*/
-  background: rgba(135, 206, 235, 0.5);
+
 }
 
 .main-container h1 {
@@ -125,7 +125,7 @@ body {
 .container {
     width: 385px;
     background: rgba(255,255,255, 0.7);
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     padding: 10px 20px 10px 20px;
 
 }
@@ -169,6 +169,19 @@ th, td {
 
 .title h1 {
   color: #0D0D0D;
+}
+
+.home-title {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.home-title h1 {
+  color: #FFF;
+}
+
+.home-title img {
+  width: 61px;
 }
 
 .list-a-space-btn {
