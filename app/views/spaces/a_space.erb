@@ -1,31 +1,53 @@
-<%= @space.name %>
-<%= @space.description %>
-£<%= @space.price %>
-<%= @space.available_from %>
-<%= @space.available_to %>
-
-<% if !unavailable_dates(@space).empty? %>
-
-<p>This space is unavailable on the following dates:</p>
-
-<% end %>
-
-<div>
-  <ul id="unavailable_dates">
-    <% @unavailable_dates.each do |date| %>
-      <li><%= date %></li>
-    <% end %>
-  </ul>
+<div class="specific-space" style="background-image: url('<%= @space.image_url %>')">
+  <img src="<%= @space.image_url %>">
 </div>
+<div class='row'>
+  <div class='space-text'>
+    <table align='center' class='space-text'>
+      <tr><td>
+  <h1><%= @space.name %></h1>
+</td></tr>
+<tr><td>
+  <h2>Details:</h2>
+</td></tr>
+<tr><td>
+  <p><%= @space.description %></p>
+</td></tr>
+<tr><td>
+  <p>£<%= @space.price %> per night</p>
+</td></tr>
+  <tr><td>
+  <p>Available from <%= @space.available_from %> to <%= @space.available_to %></p>
+</td></tr>
+<tr><td>
 
-<img src="<%= @space.image_url %>" width="300" height="300">
-<form action="/requests" method="post">
-  <input type='hidden' value='<%= @space.id %>' name='id'>
-  <label>
-    Pick a night:
-    <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
-  </label>
-  <button type="submit">
-    Request to book
-  </button>
-</form>
+  <% if !unavailable_dates(@space).empty? %>
+
+  <h3>This space is unavailable on the following dates:</h3>
+
+  <% end %>
+
+  <div>
+    <ul id="unavailable_dates">
+      <% @unavailable_dates.each do |date| %>
+        <li><%= date %></li>
+      <% end %>
+    </ul>
+  </div>
+</td></tr>
+</table>
+<br>
+
+  <form action="/requests" method="post">
+    <input type='hidden' value='<%= @space.id %>' name='id'>
+    <label>
+      Pick a night:
+      <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
+    </label>
+    <button type="submit" class="btn custom-button">
+      Request to book
+    </button>
+  </form>
+  <br><br>
+  </div>
+</div>
