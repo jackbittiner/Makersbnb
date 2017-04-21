@@ -2,52 +2,49 @@
   <img src="<%= @space.image_url %>">
 </div>
 <div class='row'>
-  <div class='space-text'>
     <table align='center' class='space-text'>
       <tr><td>
   <h1><%= @space.name %></h1>
-</td></tr>
+</td>
+<td>
+  <form action="/requests" method="post">
+    <input type='hidden' value='<%= @space.id %>' name='id'>
+    <label>
+      Pick a night:
+      <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
+    </label><br>
+    <button type="submit" class="btn custom-button">
+      Request to book
+    </button>
+  </form>
+</td>
+</tr>
 <tr><td>
   <h2>Details:</h2>
-</td></tr>
-<tr><td>
   <p><%= @space.description %></p>
-</td></tr>
-<tr><td>
-  <p>£<%= @space.price %> per night</p>
-</td></tr>
-  <tr><td>
-  <p>Available from <%= @space.available_from %> to <%= @space.available_to %></p>
-</td></tr>
-<tr><td>
+  <p>£<%= sprintf('%.2f', @space.price) %> per night</p>
+  <p>Available from <%= @space.available_from.strftime("%d/%m/%Y") %> to <%= @space.available_to.strftime("%d/%m/%Y") %></p>
+</td>
 
+<td>
   <% if !unavailable_dates(@space).empty? %>
 
-  <h3>This space is unavailable on the following dates:</h3>
+  <p>This space is unavailable<br> on the following dates:</p>
 
   <% end %>
 
   <div>
     <ul id="unavailable_dates">
       <% @unavailable_dates.each do |date| %>
-        <li><%= date %></li>
+        <li><%= date.strftime("%d/%m/%Y") %></li>
       <% end %>
     </ul>
   </div>
-</td></tr>
-</table>
-<br>
+</td>
 
-  <form action="/requests" method="post">
-    <input type='hidden' value='<%= @space.id %>' name='id'>
-    <label>
-      Pick a night:
-      <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
-    </label>
-    <button type="submit" class="btn custom-button">
-      Request to book
-    </button>
-  </form>
+</tr>
+</table>
+
+
   <br><br>
-  </div>
 </div>
