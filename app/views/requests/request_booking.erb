@@ -1,19 +1,24 @@
-<% if current_user.id == @user.id %>
-
-<h1>You have requested to book <%= @space.name %><p></h1>
-<%= @space.description %><p>
-  £<%= @space.price %>
-  <img src="<%= @space.image_url %>" width="300" height="300">
-  <p>Status: <%= @booking.status %></p>
-
-<% elsif current_user.id == @space.user_id %>
-
-<h1><%= @user.username %> has requested to book <%= @space.name %><p></h1>
-  <img src="<%= @space.image_url %>" width="300" height="300">
-  Date: <%= @booking.date %>
-  <p>Status: <%= @booking.status %></p>
-
+<div class="specific-space" style="background-image: url('<%= @space.image_url %>')">
+  <img src="<%= @space.image_url %>">
+</div>
 <div class="row">
+  <table align='center' class='space-text'>
+<tr><td>
+    <% if current_user.id == @user.id %>
+<h1>You have requested to book <%= @space.name %><p></h1>
+  <% elsif current_user.id == @space.user_id %>
+  <h1><%= @user.username %> has requested to book <%= @space.name %><p></h1>
+<% end %>
+</td></tr>
+<tr><td>
+  <p><%= @space.description %></p>
+  <p>£<%= sprintf('%.2f', @space.price) %></p>
+  <p>Date: <%= @booking.date.strftime("%d/%m/%Y") %></p>
+  <p>Status: <%= @booking.status %></p>
+</td></tr>
+</table>
+
+<% if current_user.id == @space.user_id %>
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='accepted' name='status'>
@@ -24,5 +29,5 @@
   <input type='hidden' value='declined' name='status'>
   <button type="submit" class="btn btn-primary"> Decline Request </button>
 </form>
-</div>
 <% end %>
+</div>
