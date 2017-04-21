@@ -12,18 +12,25 @@
         <button type='submit' class="btn btn-primary">List a Space</button>
       </form>
     </div>
-    
+
     <div class="row">
       <ul id="spaces">
         <% @spaces.each do |space| %>
         <div class='listing'>
+        <div class="listing-img">
+          <img src="<%= space.image_url %>">
+        </div>
+        <div class="listing-info">
           <a href="/spaces/<%= space.id %>">
-            <img src="<%= space.image_url %>">
           <h2 align='left'><%= space.name %></h2>
           </a>
           <p><%= space.description %></p>
-          <p>£<%= sprintf('%.2f', space.price) %> per night</p>
-          <p>Available from <%= space.available_from.strftime("%d/%m/%Y") %> to <%= space.available_to.strftime("%d/%m/%Y") %></p>
+          <p>£<%= sprintf('%.2f', space.price) %></p>
+          <div class="availability">
+            <p>Availability: <%= space.available_from.strftime("%d/%m/%Y") %>&nbsp; - &nbsp;<%= space.available_to.strftime("%d/%m/%Y") %></p>
+          </div>
+          <img src="http://www.tripservice.ir/images/5-stars-icon.png"> <p class="review">20 reviews</p>
+        </div>
         </div>
         <% end %>
       </ul>
