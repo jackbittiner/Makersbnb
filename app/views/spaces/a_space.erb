@@ -38,7 +38,14 @@
 </table>
 <br>
 
-  <% if !(current_user.id == @space.user_id) %>
+  <% if current_user.id == @space.user_id %>
+    <form action="/spaces/update" method="get">
+      <input type='hidden' value='<%= @space.id %>' name='id'>
+      <button class="btn-primary"type="submit">Update my space</button>
+    </form>
+
+  <% else %>
+
     <form action="/requests" method="post">
       <input type='hidden' value='<%= @space.id %>' name='id'>
       <label>
@@ -49,6 +56,7 @@
         Request to book
       </button>
     </form>
+
   <% end %>
 
   <br><br>
