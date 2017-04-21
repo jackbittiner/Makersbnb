@@ -9,7 +9,7 @@ class MakersBnB < Sinatra::Base
 
   post '/requests' do
     space = Space.first(id: params[:id])
-    taken_dates = unavailable_dates(space)
+    taken_dates = space.unavailable_dates
     request = Request.create(space_id: params[:id],
                                 user_id: current_user.id,
                                 status: 'pending',
@@ -27,9 +27,15 @@ class MakersBnB < Sinatra::Base
 
   post '/requests/outcome' do
     request = Request.first(id: params[:id])
-    request.update(:status => params[:status])
-    p params[:status]
-    redirect "/requests/user"
+    space = Space.first(id: request.space_id)
+    taken_dates = space.unavailable_dates
+    if (taken_dates.include?(request.date) && params[:status] == 'accepted')
+      flash.keep[:errors] = ["This space is already booked for that date!"]
+      redirect "/request/#{request.id}"
+    else
+      request.update(:status => params[:status])
+      redirect "/requests/user"
+    end
   end
 
   get '/requests/user' do

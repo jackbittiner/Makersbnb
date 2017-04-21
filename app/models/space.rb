@@ -14,4 +14,12 @@ class Space
 
   belongs_to :user
 
+  def unavailable_dates
+    unavailable_dates = []
+    self.requests.each do |request|
+      unavailable_dates << request.date if request.status == "accepted"
+    end
+    return unavailable_dates
+  end
+
 end
