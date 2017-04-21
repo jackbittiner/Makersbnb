@@ -1,7 +1,7 @@
 body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
-  background-color: #F3F3F3;
+  background-color: #FFF;
 }
 
 .nav {
@@ -56,21 +56,55 @@ body {
 
 .listing {
   margin: auto;
-  border-radius: 15px;
+/*  border-radius: 15px;*/
   text-align: left;
   height: auto;
-  width: 450px;
+  width: 380px;
   box-sizing: border-box;
-  padding: 15px;
-  background: rgba(135, 206, 235, 0.5);
-  margin-bottom: 20px;
+/*  padding: 15px;*/
+/*  background: rgba(135, 206, 235, 0.5);*/
+  margin-bottom: 45px;
 }
 
 .listing img {
-  float: right;
-  border-radius: 5px;
-  width: 130px;
-  height: 130px;
+  /*float: right;*/
+/*  border-radius: 5px;*/
+  width: 100%;
+/*  height: 130px;*/
+  margin-bottom: 10px;
+}
+
+.listing-info p {
+  line-height: 1.1;
+}
+
+.listing-info h2 {
+  font-size: 24px;
+  color: #2471BC;
+  margin-top: 10px;
+
+}
+
+.listing-info img {
+  width: 77px;
+  float: left;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+
+.availability {
+  display: inline;
+}
+
+.bold-title{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.bold-title p {
+  display: inline;
+  float: left;
+  margin-right: 9px;
 }
 
 .main-container {
