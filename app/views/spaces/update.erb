@@ -1,0 +1,48 @@
+<div class="title">
+  <h1>Update your Space</h1>
+</div>
+
+<div class="row">
+  <div class="container s-form">
+    <form action="/spaces/update" method="post" id="spaces">
+
+      <div class="form-group">
+        <label>
+          Name: <input name="name" class="form-control" type="text">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Description:
+          <textarea rows="4" cols="50" class="form-control" name="description" form="spaces">
+          </textarea>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Price per night(£):
+          <input name="price" class="form-control" type="text">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Available from:
+          <input name="available_from" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
+        </label>
+      <div>
+      <div class="form-group">
+        <label>
+          Available to:
+          <input name="available_to" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Image Url:
+          <input name="image_url" class="form-control" type="text">
+        </label>
+      </div>
+      <button type='submit' class="btn btn-primary">Update my space</button>
+    </form>
+  </div>
+</div>
