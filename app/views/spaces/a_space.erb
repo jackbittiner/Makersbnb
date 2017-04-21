@@ -2,42 +2,11 @@
   <img src="<%= @space.image_url %>">
 </div>
 <div class='row'>
-  <div class='space-text'>
     <table align='center' class='space-text'>
       <tr><td>
   <h1><%= @space.name %></h1>
-</td></tr>
-<tr><td>
-  <h2>Details:</h2>
-</td></tr>
-<tr><td>
-  <p><%= @space.description %></p>
-</td></tr>
-<tr><td>
-  <p>£<%= @space.price %> per night</p>
-</td></tr>
-  <tr><td>
-  <p>Available from <%= @space.available_from %> to <%= @space.available_to %></p>
-</td></tr>
-<tr><td>
-
-  <% if !unavailable_dates(@space).empty? %>
-
-  <h3>This space is unavailable on the following dates:</h3>
-
-  <% end %>
-
-  <div>
-    <ul id="unavailable_dates">
-      <% @unavailable_dates.each do |date| %>
-        <li><%= date %></li>
-      <% end %>
-    </ul>
-  </div>
-</td></tr>
-</table>
-<br>
-
+</td>
+<td>
   <% if current_user.id == @space.user_id %>
     <form action="/spaces/update" method="get">
       <input type='hidden' value='<%= @space.id %>' name='id'>
@@ -58,7 +27,34 @@
     </form>
 
   <% end %>
+  
+</td>
+</tr>
+<tr><td>
+  <h2>Details:</h2>
+  <p><%= @space.description %></p>
+  <p>£<%= sprintf('%.2f', @space.price) %> per night</p>
+  <p>Available from <%= @space.available_from.strftime("%d/%m/%Y") %> to <%= @space.available_to.strftime("%d/%m/%Y") %></p>
+</td>
+
+<td>
+  <% if !@space.unavailable_dates.empty? %>
+
+  <p>This space is unavailable<br> on the following dates:</p>
+
+  <% end %>
+
+  <div>
+    <ul id="unavailable_dates">
+      <% @unavailable_dates.each do |date| %>
+        <li><%= date.strftime("%d/%m/%Y") %></li>
+      <% end %>
+    </ul>
+  </div>
+</td>
+</tr>
+</table>
+
 
   <br><br>
-  </div>
 </div>
