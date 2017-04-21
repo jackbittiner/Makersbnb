@@ -11,12 +11,12 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces' do
     space = Space.create(name: params[:name],
-                           description: params[:description],
-                           price: params[:price],
-                           available_from: params[:available_from],
-                           available_to: params[:available_to],
-                           user_id: current_user.id,
-                           image_url: params[:image_url])
+                         description: params[:description],
+                         price: params[:price],
+                         available_from: params[:available_from],
+                         available_to: params[:available_to],
+                         user_id: current_user.id,
+                         image_url: params[:image_url])
     current_user.spaces << space
     redirect '/spaces'
   end
@@ -32,5 +32,23 @@ class MakersBnB < Sinatra::Base
     @spaces = user.spaces
     erb :'spaces/index'
   end
+
+  get '/spaces/update' do
+    @space = Space.first(id: params[:id])
+    erb :'/spaces/update'
+  end
+
+  post '/spaces/update' do
+    # @space = Space.first(id: params[:id])
+    @space.update(name: params[:name],
+                description: params[:description],
+                price: params[:price],
+                available_from: params[:available_from],
+                available_to: params[:available_to],
+                user_id: current_user.id,
+                image_url: params[:image_url])
+    redirect '/spaces'
+  end
+
 
 end

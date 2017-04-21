@@ -16,8 +16,8 @@ class MakersBnB < Sinatra::Base
 
     def unavailable_dates(space)
       unavailable_dates = []
-      space.requests.each do |request|
-        unavailable_dates << request.date if request.status == "accepted"
+      space.requests.each do |booking|
+        unavailable_dates << booking.date if booking.status == "accepted"
       end
       return unavailable_dates
     end
