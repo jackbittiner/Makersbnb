@@ -5,41 +5,42 @@
 <div class="row">
   <div class="container s-form">
     <form action="/spaces/update" method="post" id="spaces">
+      <input type='hidden' value='<%= @space.id %>' name='id'>
 
       <div class="form-group">
         <label>
-          Name: <input name="name" class="form-control" type="text">
+          Name: <input name="name" class="form-control" value='<%= @space.name %>' type="text">
         </label>
       </div>
       <div class="form-group">
         <label>
           Description:
-          <textarea rows="4" cols="50" class="form-control" name="description" form="spaces">
+          <textarea rows="4" cols="50" class="form-control" name="description" value='<%= @space.description %>' form="spaces">
           </textarea>
         </label>
       </div>
       <div class="form-group">
         <label>
           Price per night(£):
-          <input name="price" class="form-control" type="text">
+          <input name="price" class="form-control" value='<%= @space.price %>' type="text">
         </label>
       </div>
       <div class="form-group">
         <label>
           Available from:
-          <input name="available_from" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
+          <input name="available_from" class="form-control" value='<%= @space.available_from %>' type="date" min="<%= Time.now.strftime('%F') %>">
         </label>
       <div>
       <div class="form-group">
         <label>
           Available to:
-          <input name="available_to" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
+          <input name="available_to" class="form-control" value='<%= @space.available_to %>' type="date" min="<%= Time.now.strftime('%F') %>">
         </label>
       </div>
       <div class="form-group">
         <label>
           Image Url:
-          <input name="image_url" class="form-control" type="text">
+          <input name="image_url" class="form-control" value='<%= @space.image_url %>' type="text">
         </label>
       </div>
       <button type='submit' class="btn btn-primary">Update my space</button>
