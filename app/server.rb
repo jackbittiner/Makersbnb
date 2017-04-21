@@ -14,13 +14,5 @@ class MakersBnB < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
 
-    def unavailable_dates(space)
-      unavailable_dates = []
-      space.requests.each do |request|
-        unavailable_dates << request.date if request.status == "accepted"
-      end
-      return unavailable_dates
-    end
-
   end
 end
