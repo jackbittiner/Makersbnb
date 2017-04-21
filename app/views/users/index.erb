@@ -4,12 +4,12 @@
 
 <% if !current_user %>
   <form action='/sessions/new' id='Sign-in'>
-    <button type='submit' class="btn btn-default sign-in">Sign in</button>
+    <button type='submit' class="btn custom-button sign-in">Sign in</button>
   </form>
 <% end %>
 <div class="row">
   <div class="title">
-    <img src="../bed.png">
+    <img src="../sleepy.png">
     <h1>Makers BnB</h1>
   </div>
 </div>
@@ -19,12 +19,12 @@
     <h1>Create an account</h1>
     <form action='/users' method='post'>
 
-      <div class="form-group">
+      <div class="form-group a">
         <label for='username'>Username:</label>
-          <input name='username' class="form-control" type='text' value='<%= @user.username %>' required>
+          <input name='username' class="form-control username-field" type='text' value='<%= @user.username %>' required>
       </div>
 
-      <div class="form-group">
+      <div class="form-group first-name-block">
         <label for='firstname'>First Name:</label>
         <input name='firstname' class="form-control" type='text' value='<%= @user.firstname %>' required>
       </div>
@@ -49,7 +49,7 @@
         <label for='password_confirmation'>Confirm Password:</label>
         <input name='password_confirmation' class="form-control" type='password' required>
       </div>
-      <button type='submit' class="btn btn-primary">Sign up</button>
+      <button type='submit' class="btn custom-button">Sign up</button>
       </form>
     </div>
   </div>
