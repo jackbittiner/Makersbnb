@@ -123,7 +123,7 @@ body {
 }
 
 .container {
-    width: 30%;
+    width: 385px;
     background: rgba(255,255,255, 0.7);
     border-radius: 8px;
     padding: 10px 20px 10px 20px;
@@ -182,3 +182,24 @@ th, td {
     text-align: center;
     margin-top: 80px;
 }
+
+.custom-button {
+    background-color: #034E97;
+    color: #FFF;
+    text-align: center;
+}
+
+.custom-button:hover {
+    background-color: #5B81A5;
+    color: #FFF;
+
+  }
+
+.username-field {
+    width: 155px;
+}
+
+.firstname-field {
+    width: 155px;
+}
+
