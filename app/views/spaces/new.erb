@@ -1,4 +1,6 @@
-<h1>List a Space</h1>
+<div class="title">
+  <h1>List a Space</h1>
+</div>
 
 <div class="row">
   <div class="container s-form">
@@ -9,7 +11,6 @@
           Name: <input name="name" class="form-control" type="text">
         </label>
       </div>
-
       <div class="form-group">
         <label>
           Description:
@@ -17,28 +18,24 @@
           </textarea>
         </label>
       </div>
-
       <div class="form-group">
         <label>
           Price per night(£):
           <input name="price" class="form-control" type="text">
         </label>
       </div>
-
       <div class="form-group">
         <label>
           Available from:
           <input name="available_from" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
         </label>
       <div>
-
       <div class="form-group">
         <label>
           Available to:
           <input name="available_to" class="form-control" type="date" min="<%= Time.now.strftime('%F') %>">
         </label>
       </div>
-
       <div class="form-group">
         <label>
           Image Url:
