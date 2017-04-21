@@ -1,15 +1,22 @@
 <body class="main-container">
 
-<h1>Please sign up</h1>
+<!-- <h1>Please sign up</h1> -->
 
 <% if !current_user %>
-  <form action='/sessions/new' id='Sign in'>
-    <button type='submit' class="btn btn-primary">Sign in</button>
+  <form action='/sessions/new' id='Sign-in'>
+    <button type='submit' class="btn btn-default sign-in">Sign in</button>
   </form>
 <% end %>
+<div class="row">
+  <div class="title">
+    <img src="../bed.png">
+    <h1>Makers BnB</h1>
+  </div>
+</div>
 
 <div class="row">
   <div class="container s-form">
+    <h1>Create an account</h1>
     <form action='/users' method='post'>
 
       <div class="form-group">
