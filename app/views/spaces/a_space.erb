@@ -38,16 +38,19 @@
 </table>
 <br>
 
-  <form action="/requests" method="post">
-    <input type='hidden' value='<%= @space.id %>' name='id'>
-    <label>
-      Pick a night:
-      <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
-    </label>
-    <button type="submit" class="btn custom-button">
-      Request to book
-    </button>
-  </form>
+  <% if !(current_user.id == @space.user_id) %>
+    <form action="/requests" method="post">
+      <input type='hidden' value='<%= @space.id %>' name='id'>
+      <label>
+        Pick a night:
+        <input name="book_a_night" type="date" min="<%= Time.now.strftime('%F') %>" max="<%= @space.available_to %>" required>
+      </label>
+      <button class="btn-primary" type="submit">
+        Request to book
+      </button>
+    </form>
+  <% end %>
+
   <br><br>
   </div>
 </div>
