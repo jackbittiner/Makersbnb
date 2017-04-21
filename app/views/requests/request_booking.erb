@@ -19,15 +19,18 @@
 </table>
 
 <% if current_user.id == @space.user_id %>
+<table align='center'><tr><td>
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='accepted' name='status'>
   <button type="submit" class="btn btn-primary"> Confirm Request </button>
 </form>
+</td><td>
 <form action='/requests/outcome' method='post'>
   <input type='hidden' value='<%= @booking.id %>' name='id'>
   <input type='hidden' value='declined' name='status'>
   <button type="submit" class="btn btn-primary"> Decline Request </button>
 </form>
+</td></tr></table>
 <% end %>
 </div>
