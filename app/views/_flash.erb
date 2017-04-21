@@ -1,9 +1,9 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
-<ul id='errors'>
+<div id='errors'>
   <% flash[:errors].each do |error| %>
-    <li> <%= error %> </li>
+    <%= error %>
   <% end %>
-</ul>
+</div>
 <% end %>
 
 <% if flash[:notice] %>
