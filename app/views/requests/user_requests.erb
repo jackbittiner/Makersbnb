@@ -1,16 +1,16 @@
 <html>
 
   <body>
-    <h1> <%= current_user.username %>'s requests:</h1>
+    <h1 align='center'> <%= current_user.username %>'s requests:</h1>
 
-<table class='requestbox'>
+<table align='center'>
   <tr>
-    <td>
+    <td align='center'>
       <% if !@requests_sent.empty? %>
       <h3> Sent </h3>
       <% end %>
     </td>
-    <td>
+    <td align='center'>
       <% if !@requests_received.empty? %>
       <h3> Received </h3>
       <% end %>
@@ -23,7 +23,7 @@
             <% space = Space.first(id: request.space_id) %>
             <div class="listing">
               <a href="/request/<%= request.id %>">
-              <img align='right' src="<%= space.image_url %>" width="130" height="130">
+              <img src="<%= space.image_url %>">
               <h2><%= space.name %></h2>
               </a>
               <p>£<%= sprintf('%.2f', space.price) %></p>
@@ -40,7 +40,7 @@
             <% user = User.first(id: request.user_id) %>
             <div class="listing">
               <a href="/request/<%= request.id %>">
-                <img align='right' src="<%= space.image_url %>" width="130" height="130">
+                <img src="<%= space.image_url %>">
                 <h2><%= space.name %></h2>
               </a>
               <p>Requested by: <%= user.username %></p>

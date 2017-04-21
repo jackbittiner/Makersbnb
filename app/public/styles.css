@@ -66,6 +66,13 @@ body {
   margin-bottom: 20px;
 }
 
+.listing img {
+  float: right;
+  border-radius: 5px;
+  width: 130px;
+  height: 130px;
+}
+
 .main-container {
   /*background: url(http://gardenandgun.com/wp-content/uploads/2016/12/GG0115_Islands_17.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;

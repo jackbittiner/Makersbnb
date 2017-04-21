@@ -29,7 +29,7 @@ class MakersBnB < Sinatra::Base
     request = Request.first(id: params[:id])
     request.update(:status => params[:status])
     p params[:status]
-    redirect "/request/#{request.id}"
+    redirect "/requests/user"
   end
 
   get '/requests/user' do
