@@ -1,11 +1,14 @@
 <% if current_user %>
   <div class="nav">
     <div class="logo">
-      <img src="../bed.png">
+      <a href="/"><img src="../../bed.png"></a>
     </div>
     <div class="nav-items">
       <a href="/spaces">Spaces</a>
       <a href="/requests/user">Requests</a>
+      <% if current_user.spaces %>
+        <a href="/spaces/user/<%= @current_user.username %>">Manage my spaces</a>
+      <% end %>
     </div>
     <h4>Welcome, <%= current_user.firstname %> <%= current_user.lastname %>!</h4>
     <form method='post' action='/sessions' class="signout-button">
