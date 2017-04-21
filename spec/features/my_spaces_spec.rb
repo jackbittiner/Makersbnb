@@ -28,4 +28,13 @@ feature "viewing a user's spaces" do
     expect(current_path).to eq '/spaces/user/Jack'
   end
 
+  scenario 'I cannot book my own space' do
+    sign_up
+    create_listing
+
+    visit '/spaces/user/Jack'
+    click_link 'Casa de Rodriguez'
+    expect(page).not_to have_selector(:link_or_button, 'Request to book')
+  end
+
 end
