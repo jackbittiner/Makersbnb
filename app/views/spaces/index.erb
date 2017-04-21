@@ -5,10 +5,11 @@
       <p><%=params[:username]%>'s spaces</p>
     <% end %>
 
-    <form method="get" action="/spaces/new">
-      <button type='submit' class="btn btn-primary">List a Space</button>
-    </form>
-
+    <div class="list-a-space-btn">
+      <form method="get" action="/spaces/new">
+        <button type='submit' class="btn btn-primary">List a Space</button>
+      </form>
+    </div>
     <div class="row">
       <ul id="spaces">
         <% @spaces.each do |space| %>
