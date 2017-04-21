@@ -22,9 +22,9 @@ feature "viewing a user's spaces" do
                   available_from: '18/04/17',
                   available_to: '18/04/18')
     visit '/'
-    expect(page).to have_selector(:link_or_button, 'My Spaces')
+    expect(page).to have_selector(:link_or_button, 'Manage my spaces')
 
-    click_link 'My Spaces'
+    click_link 'Manage my spaces'
     expect(current_path).to eq '/spaces/user/Jack'
   end
 
