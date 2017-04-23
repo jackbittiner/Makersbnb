@@ -1,6 +1,6 @@
 MakersBnB!
 
-![Screenshot](http://imgur.com/jciL2bD)
+[Imgur](http://i.imgur.com/jc6Yw0M.png)
 =================
 
 Allows user to both list and book holiday destinations:
@@ -37,6 +37,6 @@ $ rackup
 
 Navigate to 'localhost9292/'. The login page should display as follows:
 
-![Screenshot](http://imgur.com/jc6Yw0M)
+[Imgur](http://i.imgur.com/jc6Yw0M.png)
 
 Once signed in, MakersBnB can be used to list and request spaces!
