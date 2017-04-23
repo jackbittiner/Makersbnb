@@ -1,6 +1,6 @@
 MakersBnB!
 
-![Imgur](http://i.imgur.com/jc6Yw0M.png)
+![Imgur](http://i.imgur.com/jciL2bD.png)
 =================
 
 Allows user to both list and book holiday destinations:
